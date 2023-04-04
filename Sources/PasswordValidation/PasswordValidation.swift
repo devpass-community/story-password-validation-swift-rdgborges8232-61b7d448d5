@@ -18,6 +18,8 @@ public struct PasswordValidation {
 
     func isValid(password: String) -> Bool {
 
-        return false
+        let passwordRegex = "^[0-9]{6}$"
+        let passwordPredicate = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
+        return passwordPredicate.evaluate(with: password)
     }
 }
